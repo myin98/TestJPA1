@@ -2,7 +2,20 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <div class="header" th:fragment="bodyHeader">
     <ul class="nav nav-pills pull-right">
-        <li><a href="/">Home</a></li>
+        <li>
+            <a href="/">Home</a>
+        </li>
     </ul>
-    <a href="/"><h3 class="text-muted">Web Warriors</h3></a>
+    <a href="/">
+        <h3 class="text-muted" style="display: inline-block">Web Warriors</h3>
+    </a>
+    	<!-- sec:authorize="isAnonymous()"   로그인 유무로 화면단 표시 정의-->
+    <div style="display: inline-block; float: right;">
+        <a class="btn btn-lg btn-secondary" href="/login">로그인</a>
+    </div>
+    <!-- sec:authorize="isAuthenticated()" -->
+    <div style="display: inline-block; float: right; margin-right: 5px;">
+        <a class="btn btn-lg btn-secondary" href="/logout">로그아웃</a>
+    </div>
+    <br>
 </div>

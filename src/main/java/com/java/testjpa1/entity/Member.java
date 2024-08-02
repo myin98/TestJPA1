@@ -18,16 +18,16 @@ public class Member {
     private long id;
 
     @Column(unique = true, nullable = false)
-    private String user_Id;
+    private String user_id;
 
     @Column(nullable = false)
-    private String user_Nm;
+    private String user_nm;
 
     @Column(nullable = false)
-    private String user_Pw;
+    private String user_pw;
 
     @Column(length = 255)
-    private String user_Email;
+    private String user_email;
 
     @Column
     @CreationTimestamp

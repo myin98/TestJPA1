@@ -24,7 +24,7 @@ public class Board {
     private String content;
 
     @ManyToOne(fetch = LAZY)
-    @JoinColumn(name = "userId")
+    @JoinColumn(name = "userid")
     Member member;
 
     @Column(nullable = false, columnDefinition = "tiny default 0")

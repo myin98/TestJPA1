@@ -28,9 +28,10 @@ public class MemberRepository {
     			.getResultList();
     }
     
-    public List<Member> searchUserId(String user_id){
-    	return em.createQuery("select m from Member m where m.user_id like :user_id",Member.class)
-    			.setParameter("user_id", "%" + user_id + "%")
+    public List<Member> searchUserId(String user_nm){
+    	
+    	return em.createQuery("select m from Member m where m.user_nm like : user_nm",Member.class)
+    			.setParameter("user_nm", "%" + user_nm + "%")
     			.getResultList();
     }
     

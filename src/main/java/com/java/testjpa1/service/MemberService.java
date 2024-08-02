@@ -22,7 +22,7 @@ public class MemberService {
     }
 
     private void validateMember(Member member) {
-        List<Member> findMembers = memberRepository.findByName(member.getUser_Id());
+        List<Member> findMembers = memberRepository.findByName(member.getUser_id());
         if (!findMembers.isEmpty()) {
             throw new IllegalStateException("이미 존재하는 아이디입니다.");
         }
@@ -32,12 +32,8 @@ public class MemberService {
 	   return memberRepository.findAll();
     }
    
-   public List<Member> searchMembers(String searchTerm){
-	   if (searchTerm == null || searchTerm.trim().isEmpty()) {
-		   return findAll();
-	   }
-	   
-	   return memberRepository.searchUserId(searchTerm);
+   public List<Member> searchMembers(String user_nm){
+	   return memberRepository.searchUserId(user_nm);
    }
     
 }
