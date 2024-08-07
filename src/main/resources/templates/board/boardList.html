@@ -15,13 +15,12 @@
             </tr>
             </thead>
             <tbody>
-<!--            <tr th:each="member : ${members}">-->
-<!--                <td th:text="${member.id}"></td>-->
-<!--                <td th:text="${member.name}"></td>-->
-<!--                <td th:text="${member.address?.city}"></td> &lt;!&ndash; ? → null이면 (이름)을 더이상 진행하지 않는다. &ndash;&gt;-->
-<!--                <td th:text="${member.address?.street}"></td>-->
-<!--                <td th:text="${member.address?.zipcode}"></td>-->
-<!--            </tr>-->
+            <tr th:each="board : ${boards}">
+                <td th:text="${board.Board_id}"></td>
+                <td th:text="${board.title}"></td>
+                <td th:text="${board.member.getUser_id()}"></td>
+                <td th:text="${board.createdate}"></td>
+            </tr>
             </tbody>
         </table>
     </div>

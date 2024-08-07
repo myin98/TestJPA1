@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,10 +23,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/member")
 public class MemberController {
 
-    private final MemberService memberService;
+	@Autowired
+    private MemberService ms;
 
     public MemberController(MemberService memberService) {
-        this.memberService = memberService;
+        this.ms = memberService;
     }
 
     @GetMapping("/new")
@@ -41,30 +43,26 @@ public class MemberController {
             return "/member/memberCreate";
         }
 
-        Member member = new Member();
-        member.setUser_nm(memberDto.getUser_nm());
-        member.setUser_id(memberDto.getUser_id());
-        member.setUser_pw(memberDto.getUser_pw());
-        member.setUser_email(memberDto.getUser_email());
-
-        memberService.join(member);
-        return "redirect:/";
+        ms.join(memberDto);
+        return "redirect:/member/list";
     }
 
     @GetMapping("/list")
     public String userList(Model model, MemberDto memberDto) {
-    	List<Member> members = memberService.findAll();
+    	List<Member> members = ms.findAll();
     	model.addAttribute("members", members);
         return "/member/memberList";
     }
     
     @PostMapping("/list")
     public String userSearch(@RequestParam("id") String user_nm , Model model) {
-    	List<Member> memberList = memberService.searchMembers(user_nm);
+    	List<Member> memberList = ms.searchMembers(user_nm);
     	
         model.addAttribute("members", memberList);
 
-        return "/member/memberList"; //
+        return "/member/memberList"; 
     }
+    
+ 
     
 }

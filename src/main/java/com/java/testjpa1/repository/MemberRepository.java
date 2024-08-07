@@ -35,5 +35,9 @@ public class MemberRepository {
     			.getResultList();
     }
     
+    public Member findOne(Long member_Id) {
+    	return em.find(Member.class, member_Id);
+    }
+    
 
 }

@@ -13,13 +13,7 @@
     
   <div>
     <h1>회원 목록</h1>
-    
-    <form action="/member/list" method="post">
-        <div class="input-group">
-            <input type="text" name="id" class="form-control" placeholder="검색하실 회원의 이름을 입력하세요.">
-            <button class="btn btn-primary" type="submit">검색</button>
-        </div>
-    </form>
+
     
     <table class="table table-striped" >
         <thead>
@@ -43,9 +37,17 @@
             </tr>
         </tbody>
     </table>
+ 	
+ 	 <!-- 검색 기능 추가 -->
+    <form action="/member/list" method="post">
+        <div class="input-group" style="max-width: 350px;">
+            <input type="text" name="id" class="form-control" placeholder="검색하실 회원의 이름을 입력하세요.">
+            <button class="btn btn-secondary" type="submit">검색</button>
+        </div>
+    </form>
  
     <br>
-    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="display: inline-block">
         <a class="btn btn-secondary me-md-2" href="/member/new" >회원 추가</a>
         <a class="btn btn-dark" href="/">홈으로</a>
     </div>
