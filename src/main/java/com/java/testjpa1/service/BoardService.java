@@ -25,7 +25,7 @@ public class BoardService {
 	@Transactional
 	public Long save(BoardDto boardDto) {
 		
-		Member mm = findOne(boardDto.getWriter_Id());
+		Member mm = findOne(boardDto.getWriter_id());
 		if (mm == null) {
 			throw new RuntimeException("존재 하지 않는 회원 입니다.");
 		}
@@ -37,8 +37,8 @@ public class BoardService {
 		return board.getBoard_id();
 	}
 	
-	public Member findOne(Long member_Id) {
-		return mr.findOne(member_Id);
+	public Member findOne(Long member_id) {
+		return mr.findOne(member_id);
 	}
 	
 	public List<Board> findBoards(){

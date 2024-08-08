@@ -7,7 +7,7 @@ import lombok.Data;
 public class BoardDto {
 	
 	
-	private Long writer_Id;
+	private Long writer_id;
 	
 	@NotEmpty(message = "제목을 입력하세요.")
 	private String title;

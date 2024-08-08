@@ -20,7 +20,7 @@ import lombok.RequiredArgsConstructor;
 @Controller
 @RequestMapping("/board")
 
-public class boardController {
+public class BoardController {
 
 	@Autowired
 	private BoardService bs;
@@ -34,6 +34,7 @@ public class boardController {
     @PostMapping("/new")
     private String create(@Valid BoardDto boardDto, BindingResult result) {
     	if (result.hasErrors()) {
+    		System.out.println(boardDto);
     		return "board/boardCreate";
     	}
     	bs.save(boardDto);
