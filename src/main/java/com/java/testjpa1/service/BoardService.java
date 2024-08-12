@@ -38,7 +38,7 @@ public class BoardService {
 	}
 	
 	public Member findOne(Long member_id) {
-		return mr.findOne(member_id);
+		return mr.findById(member_id).get();
 	}
 	
 	public List<Board> findBoards(){
