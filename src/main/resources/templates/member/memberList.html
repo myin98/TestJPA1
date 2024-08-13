@@ -29,10 +29,10 @@
         <tbody>
             <!-- Iterate over members and display each member's details -->
             <tr th:each="member : ${members}">
-            	<td th:text="${member.member_id}"></td>
-                <td th:text="${member.user_nm}"></td>
-                <td th:text="${member.user_id}"></td>
-                <td th:text="${member.user_email}"></td>
+            	<td th:text="${member.id}"></td>
+                <td th:text="${member.name}"></td>
+                <td th:text="${member.userId}"></td>
+                <td th:text="${member.email}"></td>
                 <td th:text="${member.createdate}"></td>
             </tr>
         </tbody>

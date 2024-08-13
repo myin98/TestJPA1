@@ -28,10 +28,10 @@ public class MemberDto {
     
     public Member toEntity() {
     	return Member.builder()
-    			.user_email(user_email)
-    			.user_id(user_id)
-    			.user_nm(user_nm)
-    			.user_pw(user_pw)
+    			.email(user_email)
+    			.userId(user_id)
+    			.name(user_nm)
+    			.password(user_pw)
     			.build();
     }
 }

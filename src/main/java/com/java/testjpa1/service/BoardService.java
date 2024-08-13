@@ -34,7 +34,7 @@ public class BoardService {
 		board.setTitle(boardDto.getTitle());
 		board.setContent(boardDto.getContent());
 		br.save(board);
-		return board.getBoard_id();
+		return board.getId();
 	}
 	
 	public Member findOne(Long member_id) {
@@ -44,5 +44,15 @@ public class BoardService {
 	public List<Board> findBoards(){
 		return br.findAll();
 	}
+	
+	public List<Board> findByTitle(String title){
+		return br.findByTitleContaining(title);
+	}
+	
+//	public List<Board> findByWriterId(Integer writerId){
+//		return br.findByWriterId(writerId);
+//	}
+
+	
 	
 }

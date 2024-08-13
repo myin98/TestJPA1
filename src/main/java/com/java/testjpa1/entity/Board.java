@@ -15,7 +15,7 @@ public class Board {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long board_id;
+    private Long id;
 
     @Column(nullable = false)
     private String title;
@@ -24,7 +24,7 @@ public class Board {
     private String content;
 
     @ManyToOne(fetch = LAZY)
-    @JoinColumn(name= "writer_id")
+    @JoinColumn(name= "writerId")
     private Member member;
 
     @Column(nullable = false)

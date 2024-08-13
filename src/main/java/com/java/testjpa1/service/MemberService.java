@@ -20,11 +20,11 @@ public class MemberService {
     @Transactional
     public Long join(Member member) {
     	mr.save(member);
-        return member.getMember_id();
+        return member.getId();
     }
 
     private void validateMember(String user_id) {
-        if (mr.existsByid(user_id)) {
+        if (mr.existsByUserId(user_id)) {
             throw new IllegalStateException("이미 존재하는 아이디입니다.");
         }
     }

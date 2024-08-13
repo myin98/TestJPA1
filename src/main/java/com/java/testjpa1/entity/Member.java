@@ -22,19 +22,19 @@ public class Member {
 
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long member_id;
+    private Long id;
 
     @Column(unique = true, nullable = false)
-    private String user_id;
+    private String userId;
 
     @Column(nullable = false)
-    private String user_nm;
+    private String name;
 
     @Column(nullable = false)
-    private String user_pw;
+    private String password;
 
     @Column(length = 255)
-    private String user_email;
+    private String email;
 
     @Column
     @CreationTimestamp

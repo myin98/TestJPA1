@@ -2,28 +2,15 @@ package com.java.testjpa1.repository;
 
 import java.util.List;
 
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.java.testjpa1.entity.Board;
+import com.java.testjpa1.entity.Member;
 
-import jakarta.persistence.EntityManager;
-import lombok.RequiredArgsConstructor;
+public interface BoardRepository extends JpaRepository<Board, Long> {
 
-@Repository
-@RequiredArgsConstructor
-public class BoardRepository {
-
-	private final EntityManager em;
+	List<Board> findByTitleContaining(String title);
 	
-	public void save(Board board) {
-		em.persist(board);
-	}
-	
-	public List<Board> findAll(){
-		return em.createQuery("select b from Board b",Board.class)
-				.getResultList();
-	}
-	
-	
+	List<Board> findByMember(Member member);
 	
 }
